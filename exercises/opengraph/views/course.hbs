@@ -1,49 +1,85 @@
 <html>
-  <head>
-    <title>{{course.attributes.title}}</title>
+<head>
+	<title>{{course.attributes.title}}</title>
 
-    <link rel="stylesheet" href="/css/normalize.css">
-    <link rel="stylesheet" href="/css/base.css">
-    <link rel="stylesheet" href="/css/tomorrow-night.css">
-    <link rel="stylesheet" href="/app.css" />    
-    <!-- Begin Opengraph  -->
-    <meta property="og:url" content="https://project-seo.herokuapp.com/{{course.attributes.slug}}" />
-    <meta property="og:type" content="website" />
-    <meta property="og:title" content="{{course.attributes.title}}" />
-    <meta property="og:description" content="{{course.attributes.summary}}" />
+	<link rel="stylesheet" href="/css/normalize.css">
+	<link rel="stylesheet" href="/css/base.css">
+	<link rel="stylesheet" href="/css/tomorrow-night.css">
+	<link rel="stylesheet" href="/app.css" />
+	<!-- Begin Opengraph -->
+	<meta property="og:url" content="https://mike-seo.herokuapp.com/course/{{course.attributes.slug}}" />
+	<meta property="og:type" content="website" />
+	<meta property="og:title" content="{{course.attributes.title}}" />
+	<meta property="og:description" content="{{course.attributes.summary}}" />
 
-    <meta property="og:image" content="{{course.attributes.image-info.fbshare.url}}" />
-    <meta property="og:image:width" content="{{course.attributes.image-info.fbshare.width}}" />
-    <meta property="og:image:height" content="{{course.attributes.image-info.fbshare.height}}" />
-    <!-- End Opengraph  -->
+	<meta property="og:image" content="{{course.attributes.image-info.fbshare.url}}" />
+	<meta property="og:image:width" content="{{course.attributes.image-info.fbshare.width}}" />
+	<meta property="og:image:height" content="{{course.attributes.image-info.fbshare.height}}" />
+	<!-- End Opengraph -->
+	<!-- Begin twitter -->
+	<meta name="twitter:card" content="summary_large_image" />
+	<meta name="twitter:site" content="@FrontEndMasters" />
+	<meta name="twitter:creator" content="@1Marc" />
 
-		<!-- Begin twitter -->
-		<meta name="twitter:card" content="summary_large_image" />
-		<meta name="twitter:site" content="@FrontEndMasters" />
-		<meta name="twitter:creator" content="@1Marc" />
+	<meta name="twitter:image" content="{{course.attributes.image-info.thumb2x.url}}" />
+	<!-- End twitter -->
+</head>
+<body>
+<!-- BEGIN EXERCISE -->
 
-		<meta name="twitter:image" content="{{course.attributes.image-info.thumb2x.url}}" />
-		<!-- End twitter -->
+<script type="application/ld+json">
+    {
+      "@context": "http://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [{
+        "@type": "ListItem",
+        "position": 1,
+        "item": {
+          "@id": "https://mike-seo.herokuapp.com/",
+          "name": "Courses"
+        }
+      },{
+        "@type": "ListItem",
+        "position": 2,
+        "item": {
+          "@id": "https://mike-seo.herokuapp.com/course/{{course.attributes.slug}}",
+          "name": "{{course.attributes.title}}",
+          "image": "http://example.com/images/icon-author.png"
+        }
+      }]
+    }
+    </script>
 
-	</head>
-  <body>
-    <!-- BEGIN EXERCISE -->
-    <p>
-      <a href="/">&lt; Back</a>
-    </p>
-    <div class="course-header">
-      <h1>Course: {{course.attributes.title}}</h1>
-      <img class='course-image' src="{{course.attributes.image-info.square.url}}" alt="{{course.attributes.title}}">
-    </div>
-    <p>
-      {{course.attributes.description}}
-    </p>
-    <!-- END EXERCISE -->
-    <script src="/js/tester.js"></script>
-    <script src="/js/utils.js"></script>
-    <script src="/js/highlight.pack.js"></script>
-    <script src="/js/jquery-3.2.0.min.js"></script>
-    <script src="/tests.js"></script>
-    <script>hljs.initHighlightingOnLoad();</script>
-  </body>
+<script type="application/ld+json">
+    {
+      "@context": "http://schema.org",
+      "@type": "Course",
+      "name": "{{course.attributes.title}}",
+      "description": "{{course.attributes.summary}}",
+      "provider": {
+        "@type": "Organization",
+        "name": "Frontend Masters",
+        "sameAs": "https://frontendmasters.com"
+      }
+    }
+    </script>
+
+<p>
+	<a href="/">&lt; Back</a>
+</p>
+<div class="course-header">
+	<h1>Course: {{course.attributes.title}}</h1>
+	<img class='course-image' src="{{course.attributes.image-info.square.url}}" alt="{{course.attributes.title}}">
+</div>
+<p>
+	{{course.attributes.description}}
+</p>
+<!-- END EXERCISE -->
+<script src="/js/tester.js"></script>
+<script src="/js/utils.js"></script>
+<script src="/js/highlight.pack.js"></script>
+<script src="/js/jquery-3.2.0.min.js"></script>
+<script src="/tests.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+</body>
 </html>
